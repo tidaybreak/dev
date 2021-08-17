@@ -65,7 +65,9 @@ sudo systemctl start docker
 docker network create --subnet=172.18.0.0/16 mynet
 docker network ls
 
-exit
 
 yum -y install epel-release 
 yum -y update
+
+systemctl restart sshd
+systemctl restart iptables
