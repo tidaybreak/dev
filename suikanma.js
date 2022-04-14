@@ -9,4 +9,4 @@ const url = $request.url;
 const body = $response.body;
 
 let obj = JSON.parse(body);
-$done({ body: JSON.stringify(obj) });
+$done({ body: "xxx" });
