@@ -110,7 +110,14 @@ conf_sp /etc/ssh/sshd_config AddressFamily inet
 #sysctl
 conf_eq /etc/sysctl.conf net.ipv4.ip_forward 1
 conf_eq /etc/sysctl.conf net.ipv4.conf.all.rp_filter 0
-conf_eq /etc/sysctl.conf fs.file-max 10000000
+conf_eq /etc/sysctl.conf fs.file-max 1000000
+conf_eq /etc/sysctl.conf net.ipv4.tcp_tw_recycle 0
+conf_eq /etc/sysctl.conf net.ipv4.tcp_tw_recycle 0
+conf_eq /etc/sysctl.conf net.netfilter.nf_conntrack_max 1000000
+conf_eq /etc/sysctl.conf net.nf_conntrack_max 1000000
+
+
+
 sysctl -p
 
 #time
