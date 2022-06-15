@@ -118,10 +118,10 @@ conf_eq /etc/sysctl.conf net.nf_conntrack_max 1000000
 sysctl -p
 
 #security limits
-conf_eq /etc/security/limits.conf 'root soft nofile' 'root soft nofile 1000000'
-conf_eq /etc/security/limits.conf 'root hard nofile' 'root hard nofile 1000000'
-conf_eq /etc/security/limits.conf '* soft nofile' '* soft nofile 1000000'
-conf_eq /etc/security/limits.conf '* hard nofile' '* soft nofile 1000000'
+conf_sp /etc/security/limits.conf 'root soft nofile' '1000000'
+conf_sp /etc/security/limits.conf 'root hard nofile' '1000000'
+conf_sp /etc/security/limits.conf '* soft nofile' '1000000'
+conf_sp /etc/security/limits.conf '* hard nofile' '1000000'
 
 
 #time
@@ -136,6 +136,7 @@ exec_file /usr/bin/git 'yum -y install git'
 if [ "$1" = "update" ] ; then
 	yum -y install epel-release 
 	yum -y update
+        yum -y net-tools wget unzip
 fi
 
 if [ "$1" = "proxy" ] ; then
@@ -159,5 +160,3 @@ if [ "$1" = "docker" ] ; then
 	docker network create --subnet=172.18.0.0/16 mynet
 	docker network ls
 fi
-
-
