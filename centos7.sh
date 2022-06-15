@@ -99,6 +99,8 @@ exec_file /etc/firewalld/zones/public.xml 'firewall-cmd --permanent --add-port=6
 conf_sp /etc/ssh/sshd_config Port 62738
 conf_sp /etc/ssh/sshd_config UseDNS no
 conf_sp /etc/ssh/sshd_config PasswordAuthentication no
+systemctl restart firewalld
+systemctl restart sshd
 
 #x11
 exec_file /usr/bin/xauth 'yum -y install xorg-x11-xauth'
