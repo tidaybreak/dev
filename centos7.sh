@@ -115,10 +115,14 @@ conf_eq /etc/sysctl.conf net.ipv4.tcp_tw_recycle 0
 conf_eq /etc/sysctl.conf net.ipv4.tcp_tw_recycle 0
 conf_eq /etc/sysctl.conf net.netfilter.nf_conntrack_max 1000000
 conf_eq /etc/sysctl.conf net.nf_conntrack_max 1000000
-
-
-
 sysctl -p
+
+#security limits
+conf_eq /etc/security/limits.conf 'root soft nofile' 'root soft nofile 1000000'
+conf_eq /etc/security/limits.conf 'root hard nofile' 'root hard nofile 1000000'
+conf_eq /etc/security/limits.conf '* soft nofile' '* soft nofile 1000000'
+conf_eq /etc/security/limits.conf '* hard nofile' '* soft nofile 1000000'
+
 
 #time
 exec_file /usr/sbin/ntpdate 'yum -y install ntp ntpdate;ntpdate cn.pool.ntp.org;hwclock --systohc'
