@@ -143,9 +143,9 @@ fi
 
 if [ "$1" = "proxy" ] ; then
 	v=$(cat<<\EOF
-export http_proxy=http://wengzt%40ofidc.com:ti@node2.tiham.com:1090
-export https_proxy=http://wengzt%40ofidc.com:ti@node2.tiham.com:1090
-export ftp_proxy=http://wengzt%40ofidc.com:ti@node2.tiham.com:1090
+export http_proxy=http://user%40mail.com:pass@proxy.tiham.com:1090
+export https_proxy=http://user%40mail.com:pass@proxy.tiham.com:1090
+export ftp_proxy=http://user%40mail.com:pass@proxy.tiham.com:1090
 exec ${@:1}
 EOF
 )
