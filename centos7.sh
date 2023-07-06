@@ -162,3 +162,7 @@ if [ "$1" = "docker" ] ; then
 	docker network create --subnet=172.18.0.0/16 mynet
 	docker network ls
 fi
+
+if [ "$1" = "dev" ] ; then
+	yum -y install libtool gcc gcc-c++ make
+fi
