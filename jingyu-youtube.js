@@ -1,10 +1,10 @@
 // ==UserScript==
-// @name                Youtube Anti Shorts
+// @name                Youtube jingyu
 // @name:zh             Youtube jingyu
 // @namespace           Anong0u0
-// @version             0.6.4
+// @version             0.6.5
 // @description         shorts is a shit, fuck you youtube
-// @description:zh      用来屏蔽一些东西
+// @description:zh      短片就是坨屎，去你的youtube
 // @author              Anong0u0
 // @match               *://*.youtube.com/*
 // @icon                https://www.google.com/s2/favicons?sz=64&domain=youtube.com
@@ -17,6 +17,15 @@
 // ==/UserScript==
 
 console.log("[Anti Shorts] load start");
+
+const defaultConfig = '';
+const userConfig = GM_getValue("filters", defaultConfig);
+GM_registerMenuCommand("配置", () => {
+  const newConfig = prompt("输入过滤列表:", JSON.stringify(userConfig));
+  if (newConfig) {
+    GM_setValue("filters", JSON.parse(newConfig));
+  }
+});
 
 let Hide_Shorts_Renderer = GM_getValue("Hide_Shorts_Renderer", true);
 let Hide_Shorts_Game = GM_getValue("Hide_Shorts_Game", true);
@@ -122,7 +131,7 @@ a.yt-simple-endpoint.style-scope.ytd-guide-entry-renderer[title='Shorts']
 {display:none !important}`;
 
 
-const titlesToHide = ["植物", "僵", "Zombie", "ZOMBIE", "PVZ", "pvz", "Pvz", "PvZ", "pVz"];
+const titlesToHide = ["植物", "僵", "Zombie", "ZOMBIE", "PVZ", "pvz", "Pvz", "PvZ", "pVz", "\u3000-\u9FFF", "\uAC00-\uD7AF"];
 let cssRules = "";
 titlesToHide.forEach(title => {
   // 首页
@@ -131,7 +140,7 @@ titlesToHide.forEach(title => {
   `;
   // 媒体库
   cssRules += `
-    ytd-grid-video-renderer:has(a.yt-simple-endpoint.style-scope.ytd-grid-video-renderer[title*="${title}"]),
+    ytd-grid-video-renderer:has(a[title*="${title}"]),
   `;
   // 视频页
   cssRules += `
@@ -254,13 +263,5 @@ document.addEventListener("yt-page-data-fetched", onPageUpdate)
 document.addEventListener("yt-navigate-finish", onPageUpdate);
 waitElementLoad("yt-page-navigation-progress",false,40,250)
     .then((e)=>{new MutationObserver(onPageUpdate).observe(e, {attributes: true});})
-
-
-GM_registerMenuCommand("Configure Script", () => {
-  const newConfig = prompt("Enter configuration as JSON:", JSON.stringify(userConfig));
-  if (newConfig) {
-    GM_setValue("userConfig", JSON.parse(newConfig));
-  }
-});
 
 console.log("[Anti Shorts] loaded");
