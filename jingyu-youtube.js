@@ -131,7 +131,7 @@ a.yt-simple-endpoint.style-scope.ytd-guide-entry-renderer[title='Shorts']
 {display:none !important}`;
 
 
-const titlesToHide = ["植物", "僵", "Zombie", "ZOMBIE", "PVZ", "pvz", "Pvz", "PvZ", "pVz", "\u3000-\u9FFF", "\uAC00-\uD7AF"];
+const titlesToHide = ["植物", "僵", "Zombie", "zombie", "ZOMBIE", "PVZ", "pvz", "Pvz", "PvZ", "pVz", "\u3000-\u9FFF", "\uAC00-\uD7AF"];
 let cssRules = "";
 titlesToHide.forEach(title => {
   // 首页
