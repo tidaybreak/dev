@@ -2,7 +2,7 @@
 // @name                Youtube jingyu
 // @name:zh             Youtube jingyu
 // @namespace           Anong0u0
-// @version             0.6.5
+// @version             0.6.7
 // @description         shorts is a shit, fuck you youtube
 // @description:zh      短片就是坨屎，去你的youtube
 // @author              Anong0u0
