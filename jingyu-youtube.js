@@ -2,7 +2,7 @@
 // @name                Youtube jingyu
 // @name:zh             Youtube jingyu
 // @namespace           Anong0u0
-// @version             0.6.7
+// @version             0.6.8
 // @description         shorts is a shit, fuck you youtube
 // @description:zh      短片就是坨屎，去你的youtube
 // @author              Anong0u0
@@ -142,9 +142,17 @@ titlesToHide.forEach(title => {
   cssRules += `
     ytd-grid-video-renderer:has(a[title*="${title}"]),
   `;
+  // 历史记录
+  cssRules += `
+    .style-scope ytd-video-renderer:has(yt-formatted-string[aria-label*="${title}"]),
+  `;
   // 视频页
   cssRules += `
     ytd-compact-video-renderer:has(span[title*="${title}"]),
+  `;
+  // 视频结尾
+  cssRules += `
+    a[aria-label*="${title}"],
   `;
 });
 cssRules = cssRules.slice(0, -4);
