@@ -146,11 +146,11 @@ titlesToHide.forEach(title => {
   cssRules += `
     .style-scope ytd-video-renderer:has(yt-formatted-string[aria-label*="${title}"]),
   `;
-  // 视频页
+  // 视频页右侧
   cssRules += `
     ytd-compact-video-renderer:has(span[title*="${title}"]),
   `;
-  // 视频结尾
+  // 视频结尾推荐
   cssRules += `
     a[aria-label*="${title}"],
   `;
