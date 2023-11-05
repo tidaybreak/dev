@@ -2,7 +2,7 @@
 // @name                Youtube jingyu
 // @name:zh             Youtube jingyu
 // @namespace           Anong0u0
-// @version             0.6.8
+// @version             0.6.9
 // @description         shorts is a shit, fuck you youtube
 // @description:zh      短片就是坨屎，去你的youtube
 // @author              Anong0u0
@@ -131,7 +131,7 @@ a.yt-simple-endpoint.style-scope.ytd-guide-entry-renderer[title='Shorts']
 {display:none !important}`;
 
 
-const titlesToHide = ["植物", "僵", "殭", "Zombie", "zombie", "ZOMBIE", "PVZ", "pvz", "Pvz", "PvZ", "pVz", "\u3000-\u9FFF", "\uAC00-\uD7AF"];
+const titlesToHide = ["奥特曼", "植物", "僵", "殭", "Zombie", "zombie", "ZOMBIE", "PVZ", "pvz", "Pvz", "PvZ", "pVz", "\u3000-\u9FFF", "\uAC00-\uD7AF"];
 let cssRules = "yt-chip-cloud-chip-renderer.style-scope.ytd-feed-filter-chip-bar-renderer,";
 titlesToHide.forEach(title => {
   // 首页
