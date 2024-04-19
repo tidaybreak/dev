@@ -155,6 +155,7 @@ fi
 
 #docker
 if [ "$1" = "docker" ] ; then
+	yum update xfsprogs -y
 	curl -fsSL get.docker.com -o get-docker.sh
 	sudo sh get-docker.sh --mirror Aliyun
 	sudo systemctl enable docker
