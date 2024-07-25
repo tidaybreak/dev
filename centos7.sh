@@ -158,6 +158,10 @@ if [ "$1" = "docker" ] ; then
 	yum update xfsprogs -y
 	curl -fsSL get.docker.com -o get-docker.sh
 	sudo sh get-docker.sh --mirror Aliyun
+
+yum-config-manager --add-repo http://mirrors.aliyun.com/docker-ce/linux/centos/docker-ce.repo
+yum list docker-ce --showduplicates | sort -r
+  yum -y install docker-ce-18.03.1.ce
 	sudo systemctl enable docker
 	sudo systemctl start docker
 	docker network create --subnet=172.18.0.0/16 mynet
